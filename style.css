@@ -2,7 +2,7 @@
   --bg-color: #abbef2;
   --darker-bg-color: #7390e8;
   --border-radius: 20px;
-  --bg-objects-colors: #7e7e7e95;
+  --bg-objects-colors: #7e7e7ebc;
   --color: #fff;
   --font-size: 100px;
 }
@@ -21,13 +21,13 @@ p,span,footer{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.hidden{
-  display: none;
-}
-
 input{
   position: absolute;
   top: -1000000px;
+}
+
+.hidden{
+  display: none;
 }
 
 .invisible{
@@ -59,23 +59,31 @@ input{
   top: 0;
   height: 10px;
   width: 100%;
-  background-color: red;
+  background-color: rgb(216, 102, 102);
 }
 
 #progressBar div{
   height: 10px;
-  background-color: green;
+  background-color: rgb(107, 214, 25);
 }
 
 #final p{
   background-color: var(--bg-objects-colors);
-  color: #fff;
+  color: var(--color);
   padding: 20px;
   border-radius: var(--border-radius);
 }
 
 #currentWord{
   font-size: var(--font-size)
+}
+
+#correctLetters span{
+  color: aquamarine;
+}
+
+#errors span{
+  color: rgb(246, 63, 112);
 }
 
 button{
