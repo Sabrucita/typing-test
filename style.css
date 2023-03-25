@@ -1,5 +1,24 @@
+:root{
+  --bg-color: #abbef2;
+  --darker-bg-color: #7390e8;
+  --border-radius: 20px;
+  --bg-objects-colors: #85858586;
+  --color: #fff;
+  --font-size: 100px;
+}
+
 body{
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #c1cdf1 4%, var(--bg-color) 62%, var(--darker-bg-color) 100%);
+  min-height: 100vh;
+}
+
+p,span,footer{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .hidden{
@@ -14,6 +33,8 @@ body{
 }
 
 #progressBar{
+  position: absolute;
+  top: 0;
   height: 10px;
   width: 100%;
   background-color: red;
@@ -22,6 +43,22 @@ body{
 #progressBar div{
   height: 10px;
   background-color: green;
+}
+
+#final p{
+  background-color: var(--bg-objects-colors);
+  color: #fff;
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+button{
+  padding: 50px;
+  border: unset;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-objects-colors);
+  color: var(--color);
+  font-size: var(--font-size);
 }
 
 @keyframes completeBar{
