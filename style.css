@@ -1,0 +1,34 @@
+body{
+  margin: 0;
+}
+
+.hidden{
+  display: none;
+}
+
+.completeTime{
+  animation-name: completeBar;
+  animation-duration: var(--time);
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+#progressBar{
+  height: 10px;
+  width: 100%;
+  background-color: red;
+}
+
+#progressBar div{
+  height: 10px;
+  background-color: green;
+}
+
+@keyframes completeBar{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
+}
