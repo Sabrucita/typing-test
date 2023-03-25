@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <script src="./index.js" defer></script>
+  <script src="./wordsArray.js"></script>
   <title>Typing Test</title>
 </head>
 <body>
   <div id="progressBar">
     <div></div>
   </div>
+  <input type="text" class="invisible">
   <button id="startButton">Start</button>
+  <div id="currentWord"></div>
   <div class="hidden" id="final">
     <p id="correctLetters">Correct Letters: <span>0</span></p>
     <p id="errors">Errors: <span>0</span></p>

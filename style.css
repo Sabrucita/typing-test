@@ -25,6 +25,11 @@ p,span,footer{
   display: none;
 }
 
+.invisible{
+  position: absolute;
+  top: -1000000px;
+}
+
 .completeTime{
   animation-name: completeBar;
   animation-duration: var(--time);
