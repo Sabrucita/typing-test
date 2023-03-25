@@ -2,7 +2,7 @@
   --bg-color: #abbef2;
   --darker-bg-color: #7390e8;
   --border-radius: 20px;
-  --bg-objects-colors: #85858586;
+  --bg-objects-colors: #7e7e7e95;
   --color: #fff;
   --font-size: 100px;
 }
@@ -25,9 +25,22 @@ p,span,footer{
   display: none;
 }
 
-.invisible{
+input{
   position: absolute;
   top: -1000000px;
+}
+
+.invisible{
+  opacity: 0%;
+}
+
+.disappear{
+  position: absolute;
+  font-size: var(--font-size);
+  animation-name: disappear;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 .completeTime{
@@ -35,6 +48,10 @@ p,span,footer{
   animation-duration: var(--time);
   animation-fill-mode: forwards;
   animation-timing-function: linear;
+}
+
+.currentLetter{
+  color: rgb(246, 63, 112);
 }
 
 #progressBar{
@@ -57,6 +74,10 @@ p,span,footer{
   border-radius: var(--border-radius);
 }
 
+#currentWord{
+  font-size: var(--font-size)
+}
+
 button{
   padding: 50px;
   border: unset;
@@ -72,5 +93,19 @@ button{
   }
   100%{
     width: 100%;
+  }
+}
+
+@keyframes disappear{
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    color: var(--darker-bg-color);
+  }
+  100%{
+    transform: translateY(-100%);
+    opacity: 0%;
+    font-size: calc( var(--font-size) / 2);
   }
 }

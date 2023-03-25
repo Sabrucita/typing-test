@@ -8,7 +8,7 @@ let correctLetters = document.querySelector('#correctLetters span')
 let errors = document.querySelector('#errors span')
 let wpm = document.querySelector('#wpm span')
 
-const gameTime = 2;
+const gameTime = 10;
 let letterList = [];
 let currentIndex;
 
@@ -18,6 +18,7 @@ function start(){
   wpm = 0;
   console.log('Start')
   final.classList.toggle('hidden',true)
+  letterList[0].classList.toggle('currentLetter')
   progressBar.classList.toggle('completeTime',true)
   startButton.classList.toggle('hidden',true)
 }
@@ -29,12 +30,26 @@ function newWord(){
   letterList = []
   currentIndex = 0
   for (let i = 0; i < selectedWord.length; i++) {
-    const letter = selectedWord[i];
     const letterElement = document.createElement('span')
     letterElement.textContent = selectedWord[i]
     wordContainer.appendChild(letterElement)
     letterList.push(letterElement)
   }
+}
+
+function createLetterEffect(element){
+  element.classList.toggle('invisible',true)
+  const letter = element.textContent;
+  const letterPosition = element.getBoundingClientRect();
+  console.log(letter,letterPosition)
+  const newLetter = document.createElement('span')
+  newLetter.textContent = letter;
+  newLetter.style=`
+  left: ${letterPosition.left}px;
+  top: ${letterPosition.top}px;
+  `
+  newLetter.classList.add('disappear')
+  document.body.appendChild(newLetter)
 }
 
 startButton.addEventListener('click', () => start())
@@ -54,16 +69,15 @@ newWord()
 
 input.addEventListener('input', (e)=>{
   if(e.data === letterList[currentIndex].textContent) {
+    createLetterEffect(letterList[currentIndex])
     currentIndex++
     correctLetters++;
     if(currentIndex === letterList.length){
       newWord()
     }
+    letterList[currentIndex].classList.toggle('currentLetter')
   }else{
     errors++;
   }
-
-
-
 })
 input.addEventListener('blur', ()=> input.focus())
